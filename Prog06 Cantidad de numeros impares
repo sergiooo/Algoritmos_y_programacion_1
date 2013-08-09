@@ -1,0 +1,23 @@
+//Nombre: Sergio Ortiz
+//Fecha: 09/08/2013
+//Descripcion: programa que permite al usuario introducir n numeros naturales y que muestra al final la cantidad de numeros impares introducidos.
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int n,a,i,contador=0;
+    cout << "Introducir la cantidad de numeros que desea introducir: ";
+  cin >> n;
+    for(i=1;i<=n;i++)
+	{  cout << "numero "<< i<< ": ";
+	   cin >> a;
+	   if(a%2==1)
+	      contador++; 
+	}
+	cout << "La cantidad de numeros impares introducidos es: " << contador <<endl;
+	getch();
+	return(0);
+
+}
