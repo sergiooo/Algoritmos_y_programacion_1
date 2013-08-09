@@ -1,0 +1,21 @@
+//Nombre: Sergio Ortiz
+//Fecha: 09/08/2013
+//Descripcion: programa que multiplica dos numeros con sumas sucesivas.
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int a,b,r=0,i;
+    cout << "Introducir un numero natural: ";
+  cin >> a;
+    cout << "Introducir un numero natural: ";
+	cin >> b;
+	for(i=0;i<b;i++)
+		r=r+a;
+	cout << "La multiplicacion de" << a <<"*"<< b <<" es: "<<r;
+	getch();
+	return(0);
+
+}
