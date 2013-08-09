@@ -1,0 +1,17 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int n,c=0;
+    cout << "Cuantos numeros pares a mostrar?: ";
+  cin >> n;
+	while(c<n)
+	{c=c+2;
+	cout<< c << endl;
+	n--;
+    }
+  
+    getch();
+	return (0);
+}
