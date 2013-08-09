@@ -1,0 +1,30 @@
+//Nombre: Sergio Ortiz
+//Fecha: 09/08/2013
+//Descripcion: programa que permite al usuario introducir n numeros naturales y que muestra el promedio de los numeros impares.
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int n,a,i,contador=0,promedio=0;
+    cout << "Introducir la cantidad de numeros que desea introducir: ";
+  cin >> n;
+    for(i=1;i<=n;i++)
+	{  cout << "numero "<< i<< ": ";
+	   cin >> a;
+	   if(a%2==1)
+	   {contador++;
+        promedio=promedio+a;
+	   } 
+	}
+	promedio= promedio/contador;
+	cout << "El promedio de los numeros impares es: " << promedio <<endl;
+	getch();
+	return(0);
+
+}
+/*
+1.-realizar un numero que dado un conjunto de numeros naturales muestre el promedio de los numeros pares el promedio de los numeros pares , de los impares y de todos;
+2.- realizar un programa que dado un conjunto de numeros naturales muestre al menor numero y al mayor numero;
+3.- realizar un programa que permita in
