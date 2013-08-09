@@ -1,0 +1,24 @@
+//Nombre: Sergio Ortiz
+//Fecha: 09/08/2013
+//Descripcion: programa que divide mediante restas sucesivas.
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int a,b,r,i=0;
+    cout << "Introducir un numero natural: ";
+  cin >> a;
+    cout << "Introducir un numero natural: ";
+	cin >> b;
+	r=a;
+    while(r>0)
+	{	r=r-b;
+	    i++;
+	}
+	cout << "La division de " << a <<" dividido "<< b <<" es: "<<i;
+	getch();
+	return(0);
+
+}
