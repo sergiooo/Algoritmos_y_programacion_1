@@ -1,0 +1,21 @@
+//Nombre: Sergio Ortiz
+//Fecha: 09/08/2013
+//Descripcion: programa que calcula el factorial de un numero.
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int a,r,i;
+    cout << "Introducir un numero natural: ";
+  cin >> a;
+	r=1;
+    for(i=1;i<=a;i++)
+	r=r*i;
+    
+	cout << "El factorial de " << a <<" es: "<< r <<endl;
+	getch();
+	return(0);
+
+}
