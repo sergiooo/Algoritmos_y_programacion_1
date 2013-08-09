@@ -1,0 +1,21 @@
+//Nombre: Sergio Ortiz
+//Fecha: 09/08/2013
+//Descripcion: programa que pide la cantidad de numeros pares a mostrar y muestra una serie de n numeros pares.
+
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int main()
+{   int n,np=0,c;
+    cout << "Cuantos numeros pares a mostrar?: ";
+  cin >> n;
+	while(c<n)
+	{np=np+2;
+     cout << np << endl; //endl es equivalente a cout << np <<"\n"; (salto de linea).
+	 c++;
+	}
+  
+    getch();
+	return (0);
+}
