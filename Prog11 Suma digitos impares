@@ -1,0 +1,30 @@
+//Nombre: Sergio Ortiz
+//Fecha: 15/08/2013
+//Descripcion: Programa que suma los digitos impares de un numero natural.
+
+#include "StdAfx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int sumaDigitos(int numero)
+{int digito,suma=0;
+while(numero>0)
+  {digito=numero%10;
+   numero=numero/10;
+   if(digito%2==1)
+   suma=suma+digito;
+  }
+return(suma);
+}
+
+void main()
+{int numero,suma;
+do  
+  {cout<<"\nIntroduzca un numero natural: ";
+   cin>> numero;}
+while(numero<=0);
+suma= sumaDigitos(numero);
+cout<<"\nLa suma de los digitos impares del numero "<<numero<<" es: "<<suma;
+getch();
+}
