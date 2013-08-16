@@ -1,0 +1,31 @@
+//Nombre: Sergio Ortiz
+//Fecha: 15/08/2013
+//Descripcion: Programa que muestra el digito mayor de un numero natural.
+
+#include "StdAfx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int digitoMayor(int numero)
+{int digito,mayor=0;
+while(numero>0)
+  {digito=numero%10;
+   numero=numero/10;
+   if(digito>mayor)
+   mayor=digito;
+  }
+return(mayor);
+}
+
+void main()
+{int numero,mayor;
+do  
+  {cout<<"\nIntroduzca un numero natural: ";
+   cin>> numero;}
+while(numero<=0);
+mayor= digitoMayor(numero);
+cout<<"\nEl digito mayor del numero "<<numero<<" es: "<<mayor;
+getch();
+}
+
