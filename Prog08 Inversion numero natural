@@ -1,0 +1,36 @@
+//Nombre: Sergio Ortiz
+//Fecha: 15/08/2013
+//Descripcion: Inversion de un numero natural.
+
+#include "StdAfx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int inversion(int numero)
+{int aux=1,digito,invertido=0;
+while(aux<=numero)
+  {aux=aux*10;
+  }
+while(numero>0)
+  {aux=aux/10;
+   digito=numero%10;
+   numero=numero/10;
+   invertido=(digito*aux)+invertido;
+  }
+return (invertido);
+}
+
+void main()
+{int numero,invertido;
+cout<<"-----------Inversion de un numero natural-----------\n";
+cout<<"----------------------------------------------------";
+do  
+  {cout<<"\nIntroduzca un numero natural: ";
+   cin>> numero;}
+while(numero<=0);
+invertido=inversion(numero);
+cout<<"\nEl numero invertido de "<<numero<<" es: "<<invertido;
+getch();
+
+}
