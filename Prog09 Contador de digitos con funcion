@@ -1,0 +1,29 @@
+//Nombre: Sergio Ortiz
+//Fecha: 15/08/2013
+//Descripcion: Programa que cuenta la cantidad de digitos de un numero natural ingresado.
+
+#include "StdAfx.h"
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int contarDigitos(int n)
+{int i=0;
+while(n>0)
+  {n=n/10;
+   i++;
+  }
+return (i);
+}
+
+void main()
+{int numero,cantidad;
+do  
+  {cout<<"\nIntroduzca un numero natural: ";
+   cin>> numero;}
+while(numero<=0);
+cantidad= contarDigitos(numero);
+cout<<"\nLan cantidad de digitos del numero "<<numero<<" es: "<<cantidad;
+getch();
+}
+
