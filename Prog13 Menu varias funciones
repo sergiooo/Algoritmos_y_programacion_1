@@ -1,0 +1,187 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+int contarDigitos(int n)
+{int i=0;
+while(n>0)
+  {n=n/10;
+   i++;
+  }
+return (i);
+}
+
+int sumaDigitos(int numero)
+{int digito,suma=0;
+while(numero>0)
+  {digito=numero%10;
+   numero=numero/10;
+   suma=suma+digito;
+  }
+return(suma);
+}
+
+int sumaDigitosImpares(int numero)
+{int digito,suma=0;
+while(numero>0)
+  {digito=numero%10;
+   numero=numero/10;
+   if(digito%2==1)
+   suma=suma+digito;
+  }
+return(suma);
+}
+
+int digitoMayor(int numero)
+{int digito,mayor=0;
+while(numero>0)
+  {digito=numero%10;
+   numero=numero/10;
+   if(digito>mayor)
+   mayor=digito;
+  }
+return(mayor);
+}
+
+int inversion(int numero)
+{int aux=1,digito,invertido=0;
+while(aux<=numero)
+  {aux=aux*10;
+  }
+while(numero>0)
+  {aux=aux/10;
+   digito=numero%10;
+   numero=numero/10;
+   invertido=(digito*aux)+invertido;
+  }
+return (invertido);
+}
+
+//realizar una funcion que dado un numero natural elimine los digitos impares
+int eliminarImpares(int numero)
+{int par=0,aux=1,digito;
+do{digito=numero%10;
+   numero=numero/10;
+   if(digito%2==0)
+   {par=(digito*aux)+par;
+    aux=aux*10;}
+   }
+while(numero>0);
+ return (par);
+}
+
+/*int verificarAscendente(int numero)
+{int digAct=9,digAnt;
+ 
+}*/
+
+int digitoRepetido(int numero)
+{int a=0,b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,rep=-1;
+ while (numero>0) 
+  {digito= numero%10;
+   numero=numero/10;
+   if(digito==0)
+   a++;
+   if(digito==1)
+   b++;
+   if(digito==2)
+   c++;
+   if(digito==3)
+   d++;
+   if(digito==4)
+   e++;
+   if(digito==5)
+   f++;
+   if(digito==6)
+   g++;
+   if(digito==7)
+   h++;
+   if(digito==8)
+   i++;
+   if(digito==9)
+   j++;
+  }
+if(a>rep && a!=1)
+rep=0;
+if(b>rep && b!=1)
+rep=1;
+if(c>rep && c!=1)
+rep=2;
+if(d>rep && d!=1)
+rep=3;
+if(e>rep && e!=1)
+rep=4;
+if(f>rep && f!=1)
+rep=5;
+if(g>rep && g!=1)
+rep=6;
+if(h>rep && h!=1)
+rep=7;
+if(i>rep && i!=1)
+rep=8;
+if(j>rep && j!=1)
+rep=9;
+return(rep);
+}
+//Realizar una funcion que dado un numero natural muestre la frecuencia de cada uno de sus digitos
+
+void main()
+{int numero,suma,mayor,cantidad,op,invertido,par,rep;
+do
+  {cout<<"\nIntroduzca un numero natural: ";
+   cin>> numero;}
+while(numero<=0);
+do{cout<<"\n-----------------------------";
+cout<<"\n*********** MENU ************";
+cout<<"\n-----------------------------";
+cout<<"\n1.-Contar cantidad de digitos";
+cout<<"\n2.-Sumar todos los digitos";
+cout<<"\n3.-Sumar digitos impares";
+cout<<"\n4.-Mostrar digito mayor";
+cout<<"\n5.-Invertir numero";
+cout<<"\n6.-Verificar si los digitos estan ordenados de forma ascendente";
+//TERMINAR
+
+cout<<"\n7.-Asignar nuevo numero";
+cout<<"\n8.-Eliminar digitos impares";
+cout<<"\n9.-Mostrar digito que mas se repite";
+cout<<"\n0.-SALIR";
+cout<<"\n\nOPCION: ";
+cin>>op;
+cout<<"\n-----------------------------";
+switch(op)
+{case 1:cantidad= contarDigitos(numero);
+        cout<<"\nLa cantidad de digitos del numero "<<numero<<" es: "<<cantidad<<"\n\n\n";
+		getch();
+		break;
+ case 2:suma=sumaDigitos(numero);
+	    cout<<"\nLa suma de los digitos del numero "<<numero<<" es: "<<suma<<"\n\n\n";
+	    getch();
+		break;
+ case 3:suma=sumaDigitosImpares(numero);
+	    cout<<"\nLa suma de los digitos impares del numero "<<numero<<" es: "<<suma<<"\n\n\n";
+		getch();
+		break;
+ case 4:mayor= digitoMayor(numero);
+	    cout<<"\nEl digito mayor del numero "<<numero<<" es: "<<mayor<<"\n\n\n";
+		getch();
+		break;
+ case 5:invertido= inversion(numero);
+	    cout<<"\nEl numero "<<numero<<" invertido es: "<<invertido<<"\n\n\n";
+        getch();
+		break;
+ case 7:cout<<"\nIntroduzca un numero natural: ";
+	    cin>> numero;
+		getch();
+		break;
+ case 8:par= eliminarImpares(numero);
+	    cout<<"\nEl numero "<<numero<<" sin digitos impares es: "<<par<<"\n\n\n";
+		getch();
+		break;
+ case 9:
+	   
+ default:break;}
+}
+while(op!=0);
+getch();
+}
