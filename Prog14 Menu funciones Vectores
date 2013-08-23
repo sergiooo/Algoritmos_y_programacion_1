@@ -1,6 +1,6 @@
 //Nombre: Sergio Ortiz
 //Fecha: 23/08/2013
-//Descripcion:Menu con diferentes funciones que funcionan con vectores.
+//Descripcion: Menu con diferentes funciones que funcionan con vectores.
 
 #include <iostream>
 #include <conio.h>
