@@ -1,0 +1,81 @@
+#include <iostream>
+#include <conio.h>
+#include <Math.h>
+using namespace std;
+
+void cargarVector(int n,float coef[],int exp[])
+{int i;
+ for(i=0;i<n;i++)
+ {cout<<"Coeficiente del termino "<<i+1<<": ";
+  cin>>coef[i];
+  cout<<"Exponente del termino "<<i+1<<": ";
+  cin>>exp[i];
+  cout<<"\n";
+ }
+}
+
+void mostrarPolinomio(int n1,int n2,float coef1[],int exp1[],float coef2[],int exp2[])
+{int i;
+cout<<"\n\nPolinomio: "<<coef[0]<<"x^"<<exp[0]; 
+ for(i=1;i<n1+n2;i++)
+ {if(coef[i]>0)
+	 cout<<"+"<<coef1[i]<<"x^"<<exp1[i];
+  else
+     cout<<coef1[i]<<"x^"<<exp1[i];
+ }
+}
+
+void sumarPolinomio(int n1,int n2,float coef1[],int exp1[],float coef2[],int exp2[],int expFinal[],float coefFinal,int nFinal)
+{int i,j,m,nFinal;
+ if(exp1[0]>exp2[0])
+   exp1[0]=m;
+ else
+   exp2[0]=m;
+ nFinal=m+1;
+ for(i=0;i<nFinal;i++)
+ {if(exp1[i]==m && exp2[i]==m)
+	   {expFinal[i]=m;
+        coefFinal[i]=coef1[i]+coef2[i];
+       }
+  else
+	   {if(exp1[i]==m)
+	     {expFinal[i]=m;
+          coefFinal[i]=coef1[i];
+	     }
+	    else
+		 {if(exp2[i]==m)
+		   {expFinal[i]=m;
+            coefFinal[i]=coef1[i];
+	       }
+		  else
+			 nFinal--;
+         }
+	   }
+   m--;
+  }
+}
+
+
+void resolverPolinomio(int n,float coef[],int exp[],float x)
+{int i;float resultado=0;
+ for(i=0;i<n;i++)
+ {resultado=resultado+(pow(x,exp[i])*coef[i]);
+ }
+ cout<<"\nEl resultado es: "<<resultado<<"\n";
+}
+
+void main()
+{int n1,n2,exponentes1[20],exponentes2[20],exp[40];float coeficientes1[20],coeficientes2[20],x,coef[40];
+ cout<<"Inserte el numero de terminos del primer polinomio: ";
+ cin>>n1;
+ cargarVector(n1,coeficientes1,exponentes1);
+ cout<<"Inserte el numero de terminos del segundo polinomio: ";
+ cin>>n2;
+ cargarVector(n2,coeficientes2,exponentes2);
+ /*mostrarPolinomio(n,coeficientes,exponentes);
+ cout<<"\nInserte el valor de X: ";
+ cin>>x;
+ resolverPolinomio(n,coeficientes,exponentes,x);
+
+    getch();
+}
