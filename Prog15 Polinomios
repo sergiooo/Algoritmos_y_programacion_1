@@ -1,0 +1,53 @@
+//Nombre: Sergio Ortiz
+//Fecha: 30/08/2013
+//Descripcion: programa que muestra y resuelve un polinomio de N terminos.
+
+#include <iostream>
+#include <conio.h>
+#include <Math.h>
+using namespace std;
+
+void cargarVector(int n,float coef[],int exp[])
+{int i;
+ for(i=0;i<n;i++)
+ {cout<<"Coeficiente del termino "<<i+1<<": ";
+  cin>>coef[i];
+  cout<<"Exponente del termino "<<i+1<<": ";
+  cin>>exp[i];
+  cout<<"\n";
+ }
+}
+
+void mostrarPolinomio(int n,float coef[],int exp[])
+{int i;
+cout<<"\n\nPolinomio: "<<coef[0]<<"x^"<<exp[0]; 
+ for(i=1;i<n;i++)
+ {if(coef[i]>0)
+	 cout<<"+"<<coef[i]<<"x^"<<exp[i];
+  else
+     cout<<coef[i]<<"x^"<<exp[i];
+ }
+}
+
+
+void resolverPolinomio(int n,float coef[],int exp[],float x)
+{int i;float resultado=0;
+ for(i=0;i<n;i++)
+ {resultado=resultado+(pow(x,exp[i])*coef[i]);
+ }
+ cout<<"\nEl resultado es: "<<resultado<<"\n";
+}
+
+void main()
+{int n,exponentes[20];float coeficientes[20],x;
+ cout<<"Inserte el numero de terminos del polinomio: ";
+ cin>>n;
+ cout<<"\n";
+ cargarVector(n,coeficientes,exponentes);
+ mostrarPolinomio(n,coeficientes,exponentes);
+ cout<<"\nInserte el valor de X: ";
+ cin>>x;
+ resolverPolinomio(n,coeficientes,exponentes,x);
+
+    getch();
+}
