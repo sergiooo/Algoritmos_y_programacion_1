@@ -1,0 +1,68 @@
+//Nombre: Sergio Ortiz
+//Fecha: 06/09/2013
+//Descripcion: 
+
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+using namespace std;
+
+struct regAlumno
+{    char nomAlumno[20];
+     char sexo;
+     int nota;
+};
+
+struct regCurso
+{    char nomCurso[20];
+     int nroAlumnos;
+     regAlumno listaAlumno[20];
+};
+
+struct regCiclo
+{    char nomCiclo[20];
+     int nroCursos;
+     regCurso listaCurso[20];
+};
+
+void cargar(int nroCiclos,regCiclo colegio[])
+{int i,j,k;
+ for(i=0;i<nroCiclos;i++)
+  {cout<<"Introducir nombre del ciclo: ";
+   do
+     {gets( colegio[i].nomCiclo);
+     }
+   while(strlen(colegio[i].nomCiclo)==0);
+   cout<<"\nNumero de cursos: ";
+   cin>>colegio[i].nroCursos;
+   for(j=0;j<colegio[i].nroCursos;j++)
+    {do
+      {   cout<<"Introducir nombre del curso: ";
+		  gets(colegio[i].listaCurso[j].nomCurso);
+	  }
+     while(strlen(colegio[i].listaCurso[j].nomCurso)==0);
+	 cout<<"Introducir numero de alumnos del curso "<<j+1;
+	 cin>>colegio[i].listaCurso[j].nroAlumnos;
+	 for(k=0;k<colegio[i].listaCurso[j].nroAlumnos;k++)
+	  {do
+	    {   cout<<"Introducir nomAlumno: ";
+			gets(colegio[i].listaCurso[j].listaAlumno[k].nomAlumno);
+		}
+	   while(strlen(colegio[i].listaCurso[j].listaAlumno[k].nomAlumno)==0);
+	   cout<<"sexo:";
+       cin>>colegio[i].listaCurso[j].listaAlumno[k].sexo;
+	   cout<<"nota:";
+	   cin>>colegio[i].listaCurso[j].listaAlumno[k].nota;
+	  }
+    }
+  }
+ 
+}
+
+void main()
+{regCiclo colegio[5];int nroCiclos;
+cout<<"Introducir numero de ciclos: ";
+cin>>nroCiclos;
+
+}
+
