@@ -1,0 +1,54 @@
+#include <iostream>
+#include <conio.h>
+using namespace std;
+
+#define NFIL 30
+#define NCOL 30
+
+//Nombre: Sergio Ortiz
+//Fecha: 20/08/2013
+//Descripcion: programa que carga una matriz en forma de caracol.
+
+void cargarMatrizCaracol(int mat[NFIL][NCOL],int n)
+{int i,a=0,c=1;
+ for(a=0;a<n/2;a++)
+  {for(i=a;i<n-a;i++)
+     mat[a][i]=c++;
+   for(i=a+1;i<n-a;i++)
+	 mat[i][n-a-1]=c++;
+   for(i=n-a-2;i>=a;i--)
+	 mat[n-a-1][i]=c++;
+   for(i=n-a-2;i>a;i--)
+	 mat[i][a]=c++;
+  }
+ if(n%2!=0)
+   mat[(n-1)/2][(n-1)/2]=c++;
+}
+
+void limpiarMatriz(int mat[NFIL][NCOL],int nfilas,int ncolumnas)
+{int i,j;
+ for(i=0;i<nfilas;i++)
+  {for(j=0;j<ncolumnas;j++)
+   mat[i][j]=0;
+  }
+}
+
+void mostrarMatriz(int mat[NFIL][NCOL],int nfilas,int ncolumnas)
+{int i,j;
+ for(i=0;i<nfilas;i++)
+  {for(j=0;j<ncolumnas;j++)
+     cout<<mat[i][j]<<"   ";
+   cout<<endl;
+  }
+}
+
+void main()
+{int mat[NFIL][NCOL] ,nfilas ,ncolumnas;
+cout<<"\nNumero de filas:";
+cin>>nfilas;
+cout<<"\nNumero de columnas:";
+cin>>ncolumnas;
+limpiarMatriz(mat,nfilas,ncolumnas);
+cargarMatrizCaracol(mat,nfilas);
+mostrarMatriz(mat,nfilas,ncolumnas);
+}
