@@ -1,0 +1,92 @@
+#include <iostream>
+#include <iomanip>
+#include <conio.h>
+using namespace std;
+
+#define FIL 20
+#define COL 20
+#define NMAX 256
+
+struct matriz
+{int mat[FIL][COL];
+};
+
+void cargarMtriz(int n,matriz A[FIL][COL])
+{int i,j,k,l,par=2,impar=1;
+ for(k=0;k<n;k++)
+ {for(l=0;l<n;l++)
+  {for(i=0;i<n;i++)
+   {for(j=0;j<n;j++)
+    {if(l%2==0)
+        {A[k][l].mat[i][j]=par;
+         par=par+2;}
+	 else
+	    {A[k][l].mat[i][j]=impar+2;
+         impar=impar+2;}
+    }
+   }
+  }
+ }
+}
+
+void mostrarMatriz(int n,matriz A[FIL][COL])
+{int i,j,k,l;
+ for(k=0;k<n;k++)
+ {for(l=0;l<n;l++)
+  {for(i=0;i<n;i++)
+   {for(j=0;j<n;j++)
+    {cout<<setw(4)<<A[k][i].mat[l][j]<<" ";
+    }
+   cout<<" ";
+   }
+   cout<<endl;
+  }
+  cout<<endl;cout<<endl;
+ }
+}
+
+void cargarAleatorio(int n,matriz A[FIL][COL],int vec[])
+{int i,j,k,l,h=0;
+ for(k=0;k<n;k++)
+ {for(l=0;l<n;l++)
+  {for(i=0;i<n;i++)
+   {for(j=0;j<n;j++)
+    {A[k][l].mat[i][j]= rand() % 100;
+     vec[h]=A[k][l].mat[i][j];
+	 h++;
+    }
+   }
+  }
+ }
+}
+
+void bubbleSort(int n,matriz A[FIL][COL],int vec[])
+{int i,j,k,l,m,aux;
+ m=n*n*n*n;
+ for(j=0;j<m;j++)
+ {for(i=0;i<m-1;i++)
+  {if(vec[i+1]<vec[i])
+    {aux=vec[i];
+     vec[i]=vec[i+1];
+	 vec[i+1]=aux;
+    }
+  }
+ }
+ for(i=0;i<m;i++)
+	 cout<<vec[i]<<" ";
+}
+
+
+void main()
+{int n,i,m,vec[NMAX]; matriz A[FIL][COL];
+ cout<<"\nTamanho de matrices: ";
+ cin>>n;
+ m=n*n*n*n;
+ cargarAleatorio(n,A,vec);
+ /*for(i=0;i<m;i++)
+  cout<<vec[i]<<" ";
+ cout<<endl;*/
+ bubbleSort(n,A,vec);
+ mostrarMatriz(n,A);
+    getch();
+}
