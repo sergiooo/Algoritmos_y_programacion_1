@@ -1,0 +1,82 @@
+//Nombre: Sergio Ortiz
+//Fecha: 25/10/2013
+//Descripcion: programa que crea y modifica archivos.
+
+#include <iostream>
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+using namespace std;
+
+struct regAmigo
+{char nombre[30];
+ int edad;
+ char email[80];
+ char carrera[30];
+ char estado; //'N' no esta eliminado 'S' si esta eliminado;
+};
+
+int main()
+{FILE*ptr;
+ regAmigo reg;
+ char nomArchivo[30],modo[5];
+ int op,op2;
+ cout<<"Nombre del archivo: ";
+  do
+ {
+   gets(nomArchivo);
+ }
+ while(strlen(nomArchivo)==0);
+ strcat(nomArchivo,".dat");   //agrega ".dat" al nombre del archivo.
+ cout<<"1.-Crear archivo.\n";
+ cout<<"2.-Adicionar archivo.\n";
+ cout<<"opcion: ";
+ cin>>op;
+ if(op==1)
+  { 
+	  strcpy(modo,"wb");    //strcpy escribe "wb" en modo.
+  }
+ else
+  {
+	  strcpy(modo,"ab");
+  }
+ cout<<"Nombre : ";
+ do
+  {
+   gets(reg.nombre);
+  }
+ while(strlen(reg.nombre)==0);
+ cout<<"Edad: ";
+ cin>>reg.edad;
+ cout<<"Email: ";
+ do
+  {
+   gets(reg.email);
+  }
+ while(strlen(reg.email)==0);
+ cout<<"Carrera: \n";
+ do
+ {
+  cout<<"\n  1.-Ing.Civil.";
+  cout<<"\n  2._Ing.Electronica.";
+  cout<<"\n  3.-Ing.Petrolera.";
+  cout<<"\n  4.-Ing.de Cistemas";
+  cout<<"\n  opcion: ";
+  cin>>op;
+  switch(op)
+   {
+    case 1:strcpy(reg.carrera,"Ing.Civil");break;
+	case 2:strcpy(reg.carrera,"Ing.Electronica");break;
+    case 3:strcpy(reg.carrera,"Ing.Petrolera");break;
+    case 4:strcpy(reg.carrera,"Ing.de Cistemas");break;
+	default:cout<<"\nIntroduzca opcion valida!! ";break;
+   }
+ }
+ while(op<1 && op>4);
+ reg.estado='N';
+ ptr=fopen(nomArchivo,modo);
+ fwrite(&reg,sizeof(reg),1,ptr);
+ fclose(ptr);
+    getch();
+    return(1);
+}
