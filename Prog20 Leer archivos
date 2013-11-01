@@ -1,0 +1,60 @@
+//Nombre: Sergio Ortiz
+//Fecha: 01/11/2013
+//Descripcion: programa que lee archivos y muestra edad mayor y promedio de edades.
+
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+#include <iomanip>
+using namespace std;
+
+struct regAmigo
+{ char nombre[30];
+  int edad;
+  char email[80];
+  char estado;
+};
+
+int main()
+{FILE*ptr;
+ regAmigo reg;
+ int cont=0,promedio=0,edadMayor=0;
+ ptr=fopen("amigos.dat","rb");
+ if(ptr==NULL)
+	 cout<<"Archivo no existe..!!!";
+ else
+  {cout<<left;
+   cout<<setw(60)<<"========================================================="<<endl;
+   cout<<setw(60)<<"                  ****REPORTE AMIGOS****                 "<<endl;
+   cout<<setw(60)<<"========================================================="<<endl<<endl;
+   cout<<setw(60)<<"NOMBRE                       EDAD          EMAIL"<<endl;
+   cout<<setw(60)<<"---------------------------------------------------------";
+   fread(&reg,sizeof(reg),1,ptr);
+   while(!feof(ptr))
+    {if(reg.estado=='N')
+      {if(reg.edad>edadMayor)
+          edadMayor=reg.edad;
+	   cout<<endl<<setw(30)<<reg.nombre<<setw(4)<<reg.edad<<setw(30)<<reg.email;
+       promedio=reg.edad+promedio;
+	   cont++;
+      }
+     fread(&reg,sizeof(reg),1,ptr);
+    }
+   rewind(ptr);
+   cout<<endl<<setw(60)<<"========================================================="<<endl;
+   cout<<"LAS EDADES MAYORES SON: ";
+   cout<<endl<<setw(60)<<"---------------------------------------------------------";
+   fread(&reg,sizeof(reg),1,ptr);
+   while(!feof(ptr))
+    {if(reg.estado=='N' && reg.edad==edadMayor)
+       cout<<endl<<setw(30)<<reg.nombre<<setw(4)<<reg.edad<<setw(30)<<reg.email;
+     fread(&reg,sizeof(reg),1,ptr);
+    }
+  }
+ cout<<endl<<setw(60)<<"---------------------------------------------------------";
+ cout<<endl<<"El promedio de las edades es: "<<promedio/cont<<" anhos";
+ fclose(ptr);
+ cout<<endl<<setw(60)<<"========================================================="<<endl;
+     getch();
+     return(1);
+}
